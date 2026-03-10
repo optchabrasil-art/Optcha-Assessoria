@@ -1,0 +1,633 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, ArrowRight, Instagram, Linkedin, MessageCircle, ChevronDown, Plus, Minus, Star, Quote } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+// --- Components ---
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Início', href: '#' },
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Serviços', href: '#servicos' },
+    { name: 'Cases', href: '#cases' },
+    { name: 'Contato', href: '#contato' },
+  ];
+
+  return (
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-display tracking-tighter">
+          OPTCHA
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link key={link.name} href={link.href} className="text-sm font-accent uppercase tracking-widest hover:text-brand transition-colors">
+              {link.name}
+            </Link>
+          ))}
+          <Link 
+            href="https://wa.me/5511921414523" 
+            className="border border-brand px-6 py-2 rounded-full text-sm font-accent uppercase tracking-widest hover:bg-brand transition-all duration-300"
+          >
+            WhatsApp
+          </Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-dark-soft border-b border-white/5 p-6 flex flex-col gap-6 md:hidden"
+          >
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-xl font-display uppercase tracking-wider"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link 
+              href="https://wa.me/5511921414523" 
+              className="bg-brand text-white text-center py-3 rounded-full font-accent uppercase tracking-widest"
+            >
+              Falar no WhatsApp
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden">
+      {/* Radial Gradient Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,97,26,0.05)_0%,transparent_70%)] pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-start"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <motion.div 
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="w-3 h-3 bg-brand rounded-full" 
+            />
+            <span className="text-xs font-accent uppercase tracking-[0.3em] text-white/60">Assessoria Digital</span>
+          </div>
+
+          <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-display leading-[0.9] uppercase tracking-tighter mb-4">
+            Escolha o digital, <br />
+            <span className="text-brand">transforme marcas.</span>
+          </h1>
+
+          <div className="w-full flex flex-col md:flex-row justify-between items-end gap-8 mt-4">
+            <div className="hidden md:block w-1/3 h-[1px] bg-white/10 mb-4" />
+            <p className="max-w-md text-white/50 text-lg md:text-xl font-light leading-relaxed text-right">
+              Estratégia, criatividade e presença online para quem quer crescer de verdade — não só aparecer.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Marquee = () => {
+  const items = ["ESTRATÉGIAS", "SOLUÇÕES", "RESULTADOS", "POSICIONAMENTO"];
+  return (
+    <div className="bg-white py-6 overflow-hidden flex whitespace-nowrap">
+      <motion.div 
+        animate={{ x: [0, -1000] }}
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+        className="flex gap-12 items-center"
+      >
+        {[...Array(10)].map((_, i) => (
+          <React.Fragment key={i}>
+            {items.map((item) => (
+              <span key={item} className="text-dark font-display text-4xl md:text-6xl uppercase flex items-center gap-12">
+                {item} <span className="text-2xl">✦</span>
+              </span>
+            ))}
+          </React.Fragment>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+const About = () => {
+  return (
+    <section id="sobre" className="py-32 px-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
+          <h2 className="text-4xl md:text-6xl font-display uppercase leading-tight mb-8">
+            Agência criativa para posicionamento, marketing digital e presença online.
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16">
+            <div className="aspect-[3/4] relative overflow-hidden rounded-2xl group">
+              <Image 
+                src="https://picsum.photos/seed/agency1/600/800?grayscale" 
+                alt="Editorial 1" 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-dark/20 mix-blend-overlay" />
+            </div>
+            <div className="aspect-square relative overflow-hidden rounded-2xl group md:mt-12">
+              <Image 
+                src="https://picsum.photos/seed/agency2/600/600?grayscale" 
+                alt="Editorial 2" 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-dark/20 mix-blend-overlay" />
+            </div>
+            <div className="aspect-[3/4] relative overflow-hidden rounded-2xl group">
+              <Image 
+                src="https://picsum.photos/seed/agency3/600/800?grayscale" 
+                alt="Editorial 3" 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-dark/20 mix-blend-overlay" />
+            </div>
+          </div>
+          <p className="mt-8 italic text-white/40 text-lg">
+            &quot;Presença que gera resultado e posiciona você no mercado.&quot;
+          </p>
+        </div>
+
+        <div className="lg:pl-12 flex flex-col justify-between h-full">
+          <div className="relative">
+            <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-12">
+              Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que seguidores — quer presença real, autoridade e crescimento sustentável.
+            </p>
+            <p className="text-white/50 mb-8">
+              Nota 4.9. Atendimento 100% online. Em todo o Brasil.
+            </p>
+            
+            {/* Rotating Badge */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+              className="w-32 h-32 border border-white/10 rounded-full flex items-center justify-center relative"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-accent uppercase tracking-tighter">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                  <text className="fill-white/40">
+                    <textPath href="#circlePath">ESPECIALISTA 4.9 ★ ESPECIALISTA 4.9 ★ </textPath>
+                  </text>
+                </svg>
+              </div>
+              <Star className="text-brand fill-brand" size={24} />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Stats = () => {
+  const stats = [
+    { value: '250+', label: 'Projetos Entregues', sub: 'cada um com propósito e resultado.' },
+    { value: '7+', label: 'Anos de Experiência', sub: 'posicionando marcas no digital.' },
+    { value: '37%', label: 'Alcance Nacional', sub: 'atendemos em mais de 10 estados.' },
+  ];
+
+  return (
+    <section className="bg-dark-soft py-32 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        {stats.map((stat, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className={`flex flex-col items-center text-center ${i < 2 ? 'md:border-r border-white/10' : ''}`}
+          >
+            <span className="text-6xl md:text-8xl font-display mb-4">{stat.value}</span>
+            <span className="text-xl font-accent uppercase tracking-widest mb-2">{stat.label}</span>
+            <span className="text-white/40 text-sm max-w-[200px]">{stat.sub}</span>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Services = () => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const services = [
+    { id: '01', title: 'Social Media', desc: 'Criamos estratégias de social media que transformam seguidores em clientes reais. Conteúdo com intenção, consistência e identidade.' },
+    { id: '02', title: 'Tráfego Pago', desc: 'Campanhas que convertem. Anúncios com propósito — cada centavo investido pensado para gerar resultado mensurável.' },
+    { id: '03', title: 'Website e Sistemas', desc: 'Sites e sistemas sob medida para impulsionar o crescimento do seu negócio. Do design ao desenvolvimento, entregamos experiências que vendem.' },
+    { id: '04', title: 'Google Meu Negócio', desc: 'Apareça quando seu cliente está buscando. Otimizamos seu perfil para que sua empresa seja encontrada — e escolhida.' },
+  ];
+
+  return (
+    <section id="servicos" className="py-32 px-6 max-w-7xl mx-auto">
+      <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">O QUE FAZEMOS</span>
+      <h2 className="text-4xl md:text-6xl font-display uppercase mb-20">Sua marca posicionada no digital.</h2>
+
+      <div className="flex flex-col">
+        {services.map((service, i) => (
+          <div 
+            key={service.id}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+            className="group border-t border-white/10 py-12 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-500"
+          >
+            <div className="flex items-center gap-8 md:gap-16">
+              <span className="text-white/20 font-display text-2xl">{service.id}</span>
+              <h3 className="text-3xl md:text-5xl font-display uppercase group-hover:text-brand transition-colors">
+                {service.title}
+              </h3>
+            </div>
+            
+            <div className="flex items-center gap-8 mt-6 md:mt-0">
+              <motion.p 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ 
+                  opacity: hovered === i ? 1 : 0,
+                  height: hovered === i ? 'auto' : 0,
+                  width: hovered === i ? '300px' : '0px'
+                }}
+                className="text-white/50 text-sm hidden lg:block overflow-hidden"
+              >
+                {service.desc}
+              </motion.p>
+              <motion.div
+                animate={{ rotate: hovered === i ? 45 : 0 }}
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand"
+              >
+                <ArrowRight className="group-hover:text-brand" />
+              </motion.div>
+            </div>
+          </div>
+        ))}
+        <div className="border-t border-white/10" />
+      </div>
+    </section>
+  );
+};
+
+const Cases = () => {
+  return (
+    <section id="cases" className="relative py-48 px-6 overflow-hidden bg-dark">
+      {/* Background Text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span className="text-[25vw] font-display text-outline opacity-20 select-none">CASES</span>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+          <div>
+            <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Cases de Sucesso</span>
+            <h2 className="text-4xl md:text-6xl font-display uppercase">Resultados que falam.</h2>
+          </div>
+          <p className="text-white/40 max-w-xs text-right mt-6 md:mt-0">
+            Projetos entregues com resultados concretos. Clientes que cresceram com a gente.
+          </p>
+        </div>
+
+        <motion.div 
+          whileHover={{ y: -10 }}
+          className="max-w-2xl mx-auto bg-dark-muted border border-white/5 rounded-3xl p-8 md:p-12 shadow-2xl relative group"
+        >
+          <div className="absolute top-8 right-8 bg-brand/10 text-brand px-4 py-1 rounded-full text-xs font-accent uppercase tracking-widest">
+            Case Real
+          </div>
+          <h3 className="text-4xl font-display uppercase mb-8">Epimero</h3>
+          
+          <div className="grid grid-cols-2 gap-8 mb-12">
+            <div>
+              <span className="text-brand text-3xl font-display block">+80%</span>
+              <span className="text-white/40 text-xs uppercase tracking-widest">Engajamento</span>
+            </div>
+            <div>
+              <span className="text-brand text-3xl font-display block">+45%</span>
+              <span className="text-white/40 text-xs uppercase tracking-widest">CTR Médio</span>
+            </div>
+          </div>
+
+          <button className="flex items-center gap-3 text-sm font-accent uppercase tracking-[0.2em] group-hover:text-brand transition-colors">
+            Ver mais detalhes <ArrowRight size={16} />
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Pricing = () => {
+  const plans = [
+    { title: 'Social Media', features: ['Calendário Editorial', 'Identidade Visual Aplicada', 'Relatório Mensal'], tag: 'Assinatura Mensal' },
+    { title: 'Website e Sistemas', features: ['Design Responsivo', 'Integração de Ferramentas', 'Suporte Pós-entrega'], tag: 'Sob Consulta' },
+    { title: 'Google Business', features: ['Otimização de Perfil', 'Gestão de Avaliações', 'Visibilidade Local'], tag: 'Mês a Mês' },
+    { title: 'Tráfego Pago', features: ['Google & Meta Ads', 'Otimização Contínua', 'Relatórios de ROI'], tag: 'Contrato Mensal' },
+  ];
+
+  return (
+    <section className="py-32 px-6 max-w-7xl mx-auto">
+      <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">SERVIÇOS ESSENCIAIS</span>
+      <h2 className="text-4xl md:text-6xl font-display uppercase mb-20">Assessoria completa, valor consciente.</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {plans.map((plan, i) => (
+          <motion.div 
+            key={i}
+            whileHover={{ scale: 1.01, borderColor: '#F4611A' }}
+            className="bg-dark-soft border border-white/5 p-10 rounded-3xl transition-all duration-500"
+          >
+            <div className="flex justify-between items-start mb-8">
+              <h3 className="text-3xl font-display uppercase">{plan.title}</h3>
+              <span className="text-[10px] font-accent uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full text-white/40">
+                {plan.tag}
+              </span>
+            </div>
+            <ul className="space-y-4 mb-12">
+              {plan.features.map((f) => (
+                <li key={f} className="flex items-center gap-3 text-white/50 text-sm">
+                  <div className="w-1 h-1 bg-brand rounded-full" /> {f}
+                </li>
+              ))}
+            </ul>
+            <Link href="#contato" className="text-xs font-accent uppercase tracking-widest border-b border-white/20 pb-1 hover:text-brand hover:border-brand transition-all">
+              Solicitar Orçamento
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Testimonial = () => {
+  return (
+    <section className="bg-dark-soft py-48 px-6 relative overflow-hidden">
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <Quote className="text-brand mx-auto mb-12 opacity-50" size={64} />
+        <h2 className="text-2xl md:text-4xl font-light leading-relaxed mb-12 italic text-white/90">
+          &quot;O Google Meu Negócio e o Site trouxeram resultados reais para a Epimero. Hoje somos encontrados com facilidade e os clientes chegam com mais confiança.&quot;
+        </h2>
+        <div className="flex flex-col items-center">
+          <div className="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-brand">
+            <Image 
+              src="https://picsum.photos/seed/client1/100/100" 
+              alt="Caique Freitas" 
+              width={64} 
+              height={64} 
+              className="object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <span className="font-display uppercase tracking-wider">Caique Freitas Moraes</span>
+          <span className="text-brand text-xs font-accent uppercase tracking-widest">@epimero</span>
+        </div>
+      </div>
+      
+      {/* Background Editorial Image */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 opacity-10 hidden lg:block">
+        <Image 
+          src="https://picsum.photos/seed/editorial/800/1200?grayscale" 
+          alt="Editorial BG" 
+          width={400} 
+          height={600} 
+          className="object-cover rounded-l-full"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+    </section>
+  );
+};
+
+const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    { q: 'O que destaca a assessoria de vocês?', a: 'Não trabalhamos com pacotes prontos. Cada projeto é construído com atenção, estratégia e criatividade — sempre com uma visão honesta do que realmente funciona para o seu negócio.' },
+    { q: 'Como funciona a Assessoria?', a: 'Começamos com um diagnóstico para entender sua marca, seus objetivos e seu público. A partir daí, montamos um plano sob medida e colocamos em prática com acompanhamento próximo.' },
+    { q: 'A partir de quando o trabalho começa?', a: 'Logo após a assinatura do contrato e o alinhamento inicial. Em geral, iniciamos as entregas na primeira semana.' },
+    { q: 'E se eu tiver uma empresa pequena?', a: 'Melhor ainda. Trabalhamos com negócios de diferentes tamanhos — o que importa é a vontade de crescer, não o tamanho atual.' },
+    { q: 'Precisa de contrato?', a: 'Sim. O contrato protege você e garante clareza sobre prazos, entregas e responsabilidades. Nada de surpresas.' },
+  ];
+
+  return (
+    <section className="py-32 px-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div>
+          <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">FAQ</span>
+          <h2 className="text-6xl md:text-8xl font-display uppercase mb-8">Sem <br /> mistério.</h2>
+          <p className="text-white/40 max-w-xs">Respondemos tudo o que você precisar para dar o próximo passo.</p>
+        </div>
+        
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="border-b border-white/10 pb-6">
+              <button 
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex justify-between items-center py-4 text-left group"
+              >
+                <span className={`text-xl md:text-2xl font-display uppercase transition-colors ${openIndex === i ? 'text-brand' : 'text-white'}`}>
+                  {faq.q}
+                </span>
+                <div className="text-white/40 group-hover:text-brand transition-colors">
+                  {openIndex === i ? <Minus size={20} /> : <Plus size={20} />}
+                </div>
+              </button>
+              <AnimatePresence>
+                {openIndex === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-white/50 leading-relaxed pb-4">
+                      {faq.a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FinalCTA = () => {
+  return (
+    <section id="contato" className="bg-brand py-32 px-6 text-center">
+      <div className="max-w-4xl mx-auto">
+        <motion.h2 
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          className="text-5xl md:text-9xl font-display uppercase text-dark leading-none mb-8"
+        >
+          Opta. Inova. <br /> Expande.
+        </motion.h2>
+        <p className="text-dark/80 text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
+        <Link 
+          href="https://wa.me/5511921414523" 
+          className="inline-flex items-center gap-4 bg-dark text-white px-12 py-6 rounded-full font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
+        >
+          Falar no WhatsApp <ArrowRight size={20} />
+        </Link>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="bg-dark pt-32 pb-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-32">
+          <div className="col-span-1 md:col-span-2">
+            <Link href="/" className="text-4xl font-display tracking-tighter mb-6 block">
+              OPTCHA
+            </Link>
+            <p className="text-white/40 text-xl font-accent uppercase tracking-widest mb-8">
+              Opta. Inova. Expande. ⟶
+            </p>
+            <div className="flex gap-6">
+              <Link href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand hover:text-brand transition-all">
+                <Instagram size={20} />
+              </Link>
+              <Link href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand hover:text-brand transition-all">
+                <Linkedin size={20} />
+              </Link>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Contato</h4>
+            <ul className="space-y-4 text-white/60">
+              <li className="flex items-center gap-3"><MessageCircle size={16} className="text-brand" /> (11) 9 2141-4523</li>
+              <li>optchabrasil@gmail.com</li>
+              <li className="text-white/40">📍 São Paulo — SP</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Navegação</h4>
+            <ul className="space-y-4 text-white/60">
+              <li><Link href="#" className="hover:text-brand transition-colors">Início</Link></li>
+              <li><Link href="#sobre" className="hover:text-brand transition-colors">Sobre Nós</Link></li>
+              <li><Link href="#servicos" className="hover:text-brand transition-colors">Serviços</Link></li>
+              <li><Link href="#cases" className="hover:text-brand transition-colors">Cases</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Instagram Grid */}
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-16">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="aspect-square relative overflow-hidden group">
+              <Image 
+                src={`https://picsum.photos/seed/insta${i}/400/400?grayscale`} 
+                alt={`Insta ${i}`} 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <Instagram size={24} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-white/20 text-xs uppercase tracking-widest">
+          <span>© 2026 OPTCHA. Todos os direitos reservados.</span>
+          <div className="flex gap-8">
+            <Link href="#" className="hover:text-white transition-colors">Privacidade</Link>
+            <Link href="#" className="hover:text-white transition-colors">Termos</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+// --- Main Page ---
+
+export default function LandingPage() {
+  return (
+    <div className="selection:bg-brand selection:text-white">
+      <Navbar />
+      <main>
+        <Hero />
+        <Marquee />
+        <About />
+        <Stats />
+        <Services />
+        <Cases />
+        <Pricing />
+        <Testimonial />
+        <FAQ />
+        <FinalCTA />
+      </main>
+      <Footer />
+      
+      {/* Custom Cursor (Simplified) */}
+      <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999]">
+        <motion.div 
+          className="w-8 h-8 border border-brand rounded-full mix-blend-difference"
+          animate={{ x: -16, y: -16 }}
+          style={{ position: 'fixed', left: 'var(--mouse-x)', top: 'var(--mouse-y)' }}
+        />
+      </div>
+      <script dangerouslySetInnerHTML={{ __html: `
+        window.addEventListener('mousemove', (e) => {
+          document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+          document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+        });
+      `}} />
+    </div>
+  );
+}

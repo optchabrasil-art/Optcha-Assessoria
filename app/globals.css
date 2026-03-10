@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-anton);
+  --font-accent: var(--font-syne);
+  
+  --color-brand: #F4611A;
+  --color-dark: #0A0A0A;
+  --color-dark-soft: #111111;
+  --color-dark-muted: #141414;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-sans;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    color: transparent;
+  }
+}
