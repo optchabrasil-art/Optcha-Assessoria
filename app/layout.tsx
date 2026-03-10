@@ -1,10 +1,10 @@
 import type {Metadata} from 'next';
-import { Inter, Anton, Syne } from 'next/font/google';
+import { Plus_Jakarta_Sans, Anton, Syne } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-plus-jakarta',
 });
 
 const anton = Anton({
@@ -19,14 +19,14 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: 'OPTCHA | Agência de Marketing Digital',
+  title: 'OPTCHA | Assessoria De Posicionamento Digital',
   description: 'Escolha o digital, transforme marcas. Estratégia, criatividade e presença online.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${anton.variable} ${syne.variable}`}>
-      <body suppressHydrationWarning className="bg-[#0A0A0A] text-white antialiased">
+    <html lang="pt-BR" className={`${plusJakartaSans.variable} ${anton.variable} ${syne.variable}`}>
+      <body suppressHydrationWarning className="bg-[#121212] text-[#efefef] antialiased">
         {children}
       </body>
     </html>

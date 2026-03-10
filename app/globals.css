@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-plus-jakarta);
   --font-display: var(--font-anton);
   --font-accent: var(--font-syne);
   
-  --color-brand: #F4611A;
-  --color-dark: #0A0A0A;
+  --color-brand: #e50010;
+  --color-dark: #121212;
   --color-dark-soft: #111111;
   --color-dark-muted: #141414;
 }
 
 @layer base {
   body {
-    @apply bg-dark text-white font-sans;
+    @apply bg-dark text-[#efefef] font-sans;
   }
 }
 

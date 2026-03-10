@@ -90,7 +90,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden">
       {/* Radial Gradient Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,97,26,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,0,16,0.05)_0%,transparent_70%)] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <motion.div
@@ -115,7 +115,7 @@ const Hero = () => {
 
           <div className="w-full flex flex-col md:flex-row justify-between items-end gap-8 mt-4">
             <div className="hidden md:block w-1/3 h-[1px] bg-white/10 mb-4" />
-            <p className="max-w-md text-white/50 text-lg md:text-xl font-light leading-relaxed text-right">
+            <p className="max-w-md text-[#e5e5e5] text-lg md:text-xl font-light leading-relaxed text-right">
               Estratégia, criatividade e presença online para quem quer crescer de verdade — não só aparecer.
             </p>
           </div>
@@ -197,10 +197,10 @@ const About = () => {
 
         <div className="lg:pl-12 flex flex-col justify-between h-full">
           <div className="relative">
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl text-[#efefef]/70 leading-relaxed mb-12">
               Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que seguidores — quer presença real, autoridade e crescimento sustentável.
             </p>
-            <p className="text-white/50 mb-8">
+            <p className="text-[#e5e5e5] mb-8">
               Nota 4.9. Atendimento 100% online. Em todo o Brasil.
             </p>
             
@@ -248,7 +248,7 @@ const Stats = () => {
           >
             <span className="text-6xl md:text-8xl font-display mb-4">{stat.value}</span>
             <span className="text-xl font-accent uppercase tracking-widest mb-2">{stat.label}</span>
-            <span className="text-white/40 text-sm max-w-[200px]">{stat.sub}</span>
+            <span className="text-[#e5e5e5] text-sm max-w-[200px]">{stat.sub}</span>
           </motion.div>
         ))}
       </div>
@@ -294,7 +294,7 @@ const Services = () => {
                   height: hovered === i ? 'auto' : 0,
                   width: hovered === i ? '300px' : '0px'
                 }}
-                className="text-white/50 text-sm hidden lg:block overflow-hidden"
+                className="text-[#e5e5e5] text-sm hidden lg:block overflow-hidden"
               >
                 {service.desc}
               </motion.p>
@@ -327,7 +327,7 @@ const Cases = () => {
             <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Cases de Sucesso</span>
             <h2 className="text-4xl md:text-6xl font-display uppercase">Resultados que falam.</h2>
           </div>
-          <p className="text-white/40 max-w-xs text-right mt-6 md:mt-0">
+          <p className="text-[#e5e5e5] max-w-xs text-right mt-6 md:mt-0">
             Projetos entregues com resultados concretos. Clientes que cresceram com a gente.
           </p>
         </div>
@@ -383,13 +383,13 @@ const Pricing = () => {
           >
             <div className="flex justify-between items-start mb-8">
               <h3 className="text-3xl font-display uppercase">{plan.title}</h3>
-              <span className="text-[10px] font-accent uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full text-white/40">
+              <span className="text-[10px] font-accent uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full text-[#e5e5e5]">
                 {plan.tag}
               </span>
             </div>
             <ul className="space-y-4 mb-12">
               {plan.features.map((f) => (
-                <li key={f} className="flex items-center gap-3 text-white/50 text-sm">
+                <li key={f} className="flex items-center gap-3 text-[#e5e5e5] text-sm">
                   <div className="w-1 h-1 bg-brand rounded-full" /> {f}
                 </li>
               ))}
@@ -460,7 +460,7 @@ const FAQ = () => {
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">FAQ</span>
           <h2 className="text-6xl md:text-8xl font-display uppercase mb-8">Sem <br /> mistério.</h2>
-          <p className="text-white/40 max-w-xs">Respondemos tudo o que você precisar para dar o próximo passo.</p>
+          <p className="text-[#e5e5e5] max-w-xs">Respondemos tudo o que você precisar para dar o próximo passo.</p>
         </div>
         
         <div className="flex flex-col gap-4">
@@ -470,10 +470,10 @@ const FAQ = () => {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex justify-between items-center py-4 text-left group"
               >
-                <span className={`text-xl md:text-2xl font-display uppercase transition-colors ${openIndex === i ? 'text-brand' : 'text-white'}`}>
+                <span className={`text-xl md:text-2xl font-display uppercase transition-colors ${openIndex === i ? 'text-brand' : 'text-[#efefef]'}`}>
                   {faq.q}
                 </span>
-                <div className="text-white/40 group-hover:text-brand transition-colors">
+                <div className="text-[#e5e5e5] group-hover:text-brand transition-colors">
                   {openIndex === i ? <Minus size={20} /> : <Plus size={20} />}
                 </div>
               </button>
@@ -485,7 +485,7 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-white/50 leading-relaxed pb-4">
+                    <p className="text-[#e5e5e5] leading-relaxed pb-4">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -506,14 +506,14 @@ const FinalCTA = () => {
         <motion.h2 
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          className="text-5xl md:text-9xl font-display uppercase text-dark leading-none mb-8"
+          className="text-5xl md:text-9xl font-display uppercase text-[#121212] leading-none mb-8"
         >
           Opta. Inova. <br /> Expande.
         </motion.h2>
-        <p className="text-dark/80 text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
+        <p className="text-[#121212]/80 text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
         <Link 
           href="https://wa.me/5511921414523" 
-          className="inline-flex items-center gap-4 bg-dark text-white px-12 py-6 rounded-full font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
+          className="inline-flex items-center gap-4 bg-[#121212] text-[#efefef] px-12 py-6 rounded-full font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
         >
           Falar no WhatsApp <ArrowRight size={20} />
         </Link>
@@ -531,7 +531,7 @@ const Footer = () => {
             <Link href="/" className="text-4xl font-display tracking-tighter mb-6 block">
               OPTCHA
             </Link>
-            <p className="text-white/40 text-xl font-accent uppercase tracking-widest mb-8">
+            <p className="text-[#e5e5e5] text-xl font-accent uppercase tracking-widest mb-8">
               Opta. Inova. Expande. ⟶
             </p>
             <div className="flex gap-6">
@@ -546,16 +546,16 @@ const Footer = () => {
           
           <div>
             <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Contato</h4>
-            <ul className="space-y-4 text-white/60">
+            <ul className="space-y-4 text-[#e5e5e5]">
               <li className="flex items-center gap-3"><MessageCircle size={16} className="text-brand" /> (11) 9 2141-4523</li>
               <li>optchabrasil@gmail.com</li>
-              <li className="text-white/40">📍 São Paulo — SP</li>
+              <li className="text-[#e5e5e5]/40">📍 São Paulo — SP</li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Navegação</h4>
-            <ul className="space-y-4 text-white/60">
+            <ul className="space-y-4 text-[#e5e5e5]">
               <li><Link href="#" className="hover:text-brand transition-colors">Início</Link></li>
               <li><Link href="#sobre" className="hover:text-brand transition-colors">Sobre Nós</Link></li>
               <li><Link href="#servicos" className="hover:text-brand transition-colors">Serviços</Link></li>
