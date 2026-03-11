@@ -137,9 +137,14 @@ const Hero = () => {
 };
 
 const Marquee = () => {
-  const items = ["ESTRATÉGIAS", "SOLUÇÕES", "RESULTADOS", "POSICIONAMENTO"];
+  const items = [
+    "RESULTADO", 
+    "SOLUÇÃO", 
+    "ESTRATÉGIA", 
+    "POSICIONAMENTO"
+  ];
   return (
-    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap">
+    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap relative z-20 -mt-[42px] md:-mt-[54px]">
       <motion.div 
         animate={{ x: [0, -1000] }}
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -161,16 +166,13 @@ const Marquee = () => {
 
 const About = () => {
   return (
-    <section id="sobre" className="py-32 px-6 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section id="sobre" className="py-32 px-6 max-w-7xl mx-auto relative">
+      <span className="text-brand font-accent uppercase tracking-widest text-sm mb-8 block">Sobre Nós</span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-24 md:mb-32">
         <div>
-          <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-wide">
-            Assessoria para posicionamento, <br className="hidden md:block" /> marketing digital e presença online.
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight tracking-wide">
+            ASSESSORIA PARA POSICIONAMENTO, <br className="hidden md:block" /> MARKETING DIGITAL E PRESENÇA ONLINE.
           </h2>
-          <p className="mt-8 italic text-text-tertiary text-lg">
-            &quot;Presença que gera resultado e posiciona você no mercado.&quot;
-          </p>
         </div>
 
         <div className="lg:pl-12 flex flex-col justify-between h-full">
@@ -181,25 +183,26 @@ const About = () => {
             <p className="text-text-secondary mb-8">
               Atendimento 100% online. Em todo o Brasil.
             </p>
-            
-            {/* Rotating Badge */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              className="w-32 h-32 border border-border-main rounded-full flex items-center justify-center relative"
-            >
-              <div className="absolute inset-0 flex items-center justify-center text-[12px] font-accent uppercase tracking-widest">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                  <text className="fill-text-primary">
-                    <textPath href="#circlePath">OPTCHA ★ OPTCHA ★ OPTCHA ★ </textPath>
-                  </text>
-                </svg>
-              </div>
-              <Star className="text-text-primary fill-text-primary absolute" size={24} />
-            </motion.div>
           </div>
         </div>
+      </div>
+
+      {/* Large Rotating Badge at the fold */}
+      <div className="absolute left-1/2 -bottom-32 md:-bottom-40 -translate-x-1/2 z-10">
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          className="w-64 h-64 md:w-80 md:h-80 border border-border-main rounded-full flex items-center justify-center relative bg-bg-primary"
+        >
+          <div className="absolute inset-0 flex items-center justify-center text-[13px] md:text-[16px] font-accent uppercase tracking-widest">
+            <svg viewBox="0 0 100 100" className="w-full h-full">
+              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+              <text className="fill-text-primary">
+                <textPath href="#circlePath">OPTCHA ⟶ OPTCHA ⟶ OPTCHA ⟶ </textPath>
+              </text>
+            </svg>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -251,8 +254,12 @@ const Services = () => {
 
       <div className="flex flex-col">
         {services.map((service, i) => (
-          <div 
+          <motion.div 
             key={service.id}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
             className="group border-t border-border-main py-12 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-500"
@@ -286,7 +293,7 @@ const Services = () => {
                 <ArrowRight className="group-hover:text-brand" />
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         ))}
         <div className="border-t border-border-main" />
       </div>

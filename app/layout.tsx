@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import { Plus_Jakarta_Sans, Anton, Syne } from 'next/font/google';
+import { Plus_Jakarta_Sans, Bebas_Neue, Syne } from 'next/font/google';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -7,10 +7,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta',
 });
 
-const anton = Anton({
+const bebasNeue = Bebas_Neue({
   weight: '400',
   subsets: ['latin'],
-  variable: '--font-anton',
+  variable: '--font-bebas',
 });
 
 const syne = Syne({
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="pt-BR" className={`${plusJakartaSans.variable} ${anton.variable} ${syne.variable}`}>
+    <html lang="pt-BR" className={`${plusJakartaSans.variable} ${bebasNeue.variable} ${syne.variable}`}>
       <body suppressHydrationWarning className="antialiased">
         {children}
       </body>
