@@ -33,20 +33,20 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-bg-primary/80 backdrop-blur-md border-b border-border-light py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-display tracking-tighter">
+        <Link href="/" className="text-2xl font-display tracking-tighter text-text-primary">
           OPTCHA
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-accent uppercase tracking-widest hover:text-brand transition-colors">
+            <Link key={link.name} href={link.href} className="text-sm font-accent uppercase tracking-widest text-text-primary hover:text-brand transition-colors">
               {link.name}
             </Link>
           ))}
-          <button onClick={toggleTheme} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#efefef] hover:text-brand hover:border-brand transition-all" title="Alternar Tema">
+          <button onClick={toggleTheme} className="w-10 h-10 rounded-full border border-border-main flex items-center justify-center text-text-primary hover:text-brand hover:border-brand transition-all" title="Alternar Tema">
             {isLightMode ? <Moon size={18} /> : <Sun size={18} />}
           </button>
           <Link 
@@ -58,7 +58,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="md:hidden text-text-primary" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -70,14 +70,14 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-dark-soft border-b border-white/5 p-6 flex flex-col gap-6 md:hidden"
+            className="absolute top-full left-0 w-full bg-bg-secondary border-b border-border-light p-6 flex flex-col gap-6 md:hidden"
           >
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-xl font-display uppercase tracking-wider"
+                className="text-xl font-display uppercase tracking-wider text-text-primary"
               >
                 {link.name}
               </Link>
@@ -88,7 +88,7 @@ const Navbar = () => {
             >
               Assessoria
             </Link>
-            <button onClick={toggleTheme} className="flex items-center gap-4 text-xl font-display uppercase tracking-wider">
+            <button onClick={toggleTheme} className="flex items-center gap-4 text-xl font-display uppercase tracking-wider text-text-primary">
               {isLightMode ? <><Moon size={24} /> Modo Escuro</> : <><Sun size={24} /> Modo Claro</>}
             </button>
           </motion.div>
@@ -314,7 +314,7 @@ const Cases = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/agency1/600/800?grayscale" 
+              src="https://picsum.photos/seed/nico.ag-site-marketing-identidade-visual/600/800?grayscale" 
               alt="@Nico.Ag" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -328,7 +328,7 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12">
             <Image 
-              src="https://picsum.photos/seed/agency2/600/800?grayscale" 
+              src="https://picsum.photos/seed/google-meu-negocio-epi-equipamentos-de-protecao-/600/800?grayscale" 
               alt="@Epimero" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -342,7 +342,7 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/agency3/600/800?grayscale" 
+              src="https://picsum.photos/seed/loja-simonetto-arquitetura-design-interiores-moveis-planejados-instagram-social-media/600/800?grayscale" 
               alt="@simonetto" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -363,7 +363,7 @@ const Pricing = () => {
   const plans = [
     { title: 'Social Media', features: ['Calendário Editorial', 'Identidade Visual Aplicada', 'Relatório Mensal'], tag: 'Assinatura Mensal' },
     { title: 'Website e Sistemas', features: ['Design Responsivo', 'Integração de Ferramentas', 'Suporte Pós-entrega'], tag: 'Sob Consulta' },
-    { title: 'Google Business', features: ['Otimização de Perfil', 'Gestão de Avaliações', 'Visibilidade Local'], tag: 'Mês a Mês' },
+    { title: 'Google Meu Negócio', features: ['Otimização de Perfil', 'Gestão de Avaliações', 'Visibilidade Local'], tag: 'Mês a Mês' },
     { title: 'Tráfego Pago', features: ['Google & Meta Ads', 'Otimização Contínua', 'Relatórios de ROI'], tag: 'Contrato Mensal' },
   ];
 
@@ -372,31 +372,37 @@ const Pricing = () => {
       <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">SERVIÇOS ESSENCIAIS</span>
       <h2 className="text-4xl md:text-6xl font-display uppercase mb-20">Assessoria completa, valor consciente.</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         {plans.map((plan, i) => (
           <motion.div 
             key={i}
             whileHover={{ scale: 1.01, borderColor: '#F4611A' }}
-            className="bg-dark-soft border border-white/5 p-10 rounded-3xl transition-all duration-500"
+            className="bg-bg-secondary border border-border-light p-10 rounded-3xl transition-all duration-500"
           >
             <div className="flex justify-between items-start mb-8">
               <h3 className="text-3xl font-display uppercase">{plan.title}</h3>
-              <span className="text-[10px] font-accent uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full text-[#e5e5e5]">
+              <span className="text-[10px] font-accent uppercase tracking-widest bg-border-light px-3 py-1 rounded-full text-text-primary">
                 {plan.tag}
               </span>
             </div>
-            <ul className="space-y-4 mb-12">
+            <ul className="space-y-4">
               {plan.features.map((f) => (
-                <li key={f} className="flex items-center gap-3 text-[#e5e5e5]/80 text-sm">
+                <li key={f} className="flex items-center gap-3 text-text-secondary text-sm">
                   <div className="w-1 h-1 bg-brand rounded-full" /> {f}
                 </li>
               ))}
             </ul>
-            <Link href="#contato" className="text-xs font-accent uppercase tracking-widest border-b border-white/20 pb-1 hover:text-brand hover:border-brand transition-all">
-              Solicitar Orçamento
-            </Link>
           </motion.div>
         ))}
+      </div>
+      
+      <div className="text-center">
+        <Link 
+          href="https://wa.me/5511921414523" 
+          className="inline-flex items-center gap-4 bg-brand text-white px-10 py-4 rounded-full font-accent uppercase tracking-widest hover:scale-105 transition-transform shadow-lg"
+        >
+          Solicitar Orçamento <ArrowRight size={18} />
+        </Link>
       </div>
     </section>
   );
@@ -425,6 +431,13 @@ const Testimonial = () => {
       image: "https://picsum.photos/seed/client3/100/100"
     }
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -652,7 +665,7 @@ export default function LandingPage() {
       {/* Custom Cursor (Simplified) */}
       <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999]">
         <motion.div 
-          className="w-8 h-8 border border-brand rounded-full mix-blend-difference"
+          className="w-8 h-8 border border-brand rounded-full"
           animate={{ x: -16, y: -16 }}
           style={{ position: 'fixed', left: 'var(--mouse-x)', top: 'var(--mouse-y)' }}
         />
