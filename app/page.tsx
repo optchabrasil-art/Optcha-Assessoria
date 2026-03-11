@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const toggleTheme = () => {
     setIsLightMode(!isLightMode);
-    document.body.classList.toggle('light-theme');
+    document.documentElement.classList.toggle('light-theme');
   };
 
   const navLinks = [
@@ -40,7 +40,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className="text-sm font-accent uppercase tracking-widest hover:text-brand transition-colors">
               {link.name}
@@ -58,7 +58,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -70,7 +70,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 p-6 flex flex-col gap-6 md:hidden text-white"
+            className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 p-6 flex flex-col gap-6 lg:hidden text-white"
           >
             {navLinks.map((link) => (
               <Link 
@@ -120,7 +120,7 @@ const Hero = () => {
             <span className="text-xs font-accent uppercase tracking-[0.3em] text-text-tertiary">Assessoria Digital</span>
           </div>
 
-          <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-display leading-[0.9] uppercase tracking-normal mb-4">
+          <h1 className="text-[clamp(3rem,10vw,8rem)] xl:text-[10rem] font-display leading-[0.9] uppercase tracking-normal mb-4">
             Escolha o digital, <br />
             <span className="text-brand block mt-4">transforme marcas.</span>
           </h1>
@@ -165,8 +165,8 @@ const About = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
-          <h2 className="text-4xl md:text-6xl font-display uppercase leading-tight mb-8 tracking-wide">
-            Assessoria para posicionamento, <br/> marketing digital e presença online.
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-wide">
+            Assessoria para posicionamento, <br className="hidden md:block" /> marketing digital e presença online.
           </h2>
           <p className="mt-8 italic text-text-tertiary text-lg">
             &quot;Presença que gera resultado e posiciona você no mercado.&quot;
@@ -214,7 +214,7 @@ const Stats = () => {
 
   return (
     <section className="bg-bg-secondary py-32 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">
         {stats.map((stat, i) => (
           <motion.div 
             key={i}
@@ -222,7 +222,7 @@ const Stats = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`flex flex-col items-center text-center ${i < 2 ? 'md:border-r border-border-main' : ''}`}
+            className={`flex flex-col items-center text-center ${i < 2 ? 'sm:border-r border-border-main' : ''}`}
           >
             <span className="text-6xl md:text-8xl font-display mb-4">{stat.value}</span>
             <span className="text-xl font-accent uppercase tracking-widest mb-2">{stat.label}</span>
@@ -264,7 +264,10 @@ const Services = () => {
               </h3>
             </div>
             
-            <div className="flex items-center gap-8 mt-6 md:mt-0">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8 mt-6 md:mt-0">
+              <p className="text-text-secondary text-sm lg:hidden">
+                {service.desc}
+              </p>
               <motion.p 
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ 
@@ -278,7 +281,7 @@ const Services = () => {
               </motion.p>
               <motion.div
                 animate={{ rotate: hovered === i ? 45 : 0 }}
-                className="w-12 h-12 rounded-full border border-border-main flex items-center justify-center group-hover:border-brand"
+                className="w-12 h-12 rounded-full border border-border-main hidden lg:flex items-center justify-center group-hover:border-brand"
               >
                 <ArrowRight className="group-hover:text-brand" />
               </motion.div>
@@ -320,9 +323,9 @@ const Cases = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display uppercase text-text-primary">@Nico.Ag</h3>
+              <h3 className="text-3xl font-display uppercase text-white">@Nico.Ag</h3>
             </div>
           </div>
           
@@ -334,9 +337,9 @@ const Cases = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display uppercase text-text-primary">@Epimero</h3>
+              <h3 className="text-3xl font-display uppercase text-white">@Epimero</h3>
             </div>
           </div>
           
@@ -348,9 +351,9 @@ const Cases = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display uppercase text-text-primary">@simonetto</h3>
+              <h3 className="text-3xl font-display uppercase text-white">@simonetto</h3>
             </div>
           </div>
         </div>
@@ -370,9 +373,9 @@ const Pricing = () => {
   return (
     <section className="py-32 px-6 max-w-7xl mx-auto">
       <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">SERVIÇOS ESSENCIAIS</span>
-      <h2 className="text-4xl md:text-6xl font-display uppercase mb-20">Assessoria completa, valor consciente.</h2>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-display uppercase mb-12 md:mb-20">Assessoria completa, valor consciente.</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
         {plans.map((plan, i) => (
           <motion.div 
             key={i}
@@ -507,7 +510,7 @@ const FAQ = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">FAQ</span>
-          <h2 className="text-6xl md:text-8xl font-display uppercase mb-8">Sem <br /> mistério.</h2>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-display uppercase mb-8">Sem <br /> mistério.</h2>
           <p className="text-text-secondary max-w-xs">Respondemos tudo o que você precisar para dar o próximo passo.</p>
         </div>
         
@@ -554,16 +557,16 @@ const FinalCTA = () => {
         <motion.h2 
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          className="text-5xl md:text-9xl font-display uppercase text-[#121212] leading-none mb-8"
+          className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display uppercase text-white leading-none mb-8"
         >
           Opta. Inova. <br /> Expande.
         </motion.h2>
-        <p className="text-[#121212]/80 text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
+        <p className="text-white/80 text-lg md:text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
         <Link 
           href="https://wa.me/5511921414523" 
-          className="inline-flex items-center gap-4 bg-[#121212] text-[#efefef] px-12 py-6 rounded-full font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
+          className="inline-flex items-center gap-4 bg-bg-primary text-text-primary px-8 py-4 md:px-12 md:py-6 rounded-full text-sm md:text-base font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl text-center"
         >
-          Falar com uma especialista <ArrowRight size={20} />
+          Falar com uma especialista <ArrowRight size={20} className="hidden sm:block" />
         </Link>
       </div>
     </section>
@@ -574,8 +577,8 @@ const Footer = () => {
   return (
     <footer className="bg-bg-primary pt-32 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-32">
-          <div className="col-span-1 md:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-32">
+          <div className="col-span-1 sm:col-span-2">
             <Link href="/" className="text-4xl font-display tracking-tighter mb-6 block">
               OPTCHA
             </Link>

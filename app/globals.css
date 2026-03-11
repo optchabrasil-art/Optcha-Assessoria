@@ -11,7 +11,7 @@
   --border-light: rgba(255, 255, 255, 0.05);
 }
 
-.light-theme {
+:root.light-theme {
   --bg-primary: #efefef;
   --bg-secondary: #ffffff;
   --bg-tertiary: #f5f5f5;
@@ -51,4 +51,4 @@
   }
 }
 
-.light-theme .mix-blend-difference { mix-blend-mode: normal; }
+:root.light-theme .mix-blend-difference { mix-blend-mode: normal; }

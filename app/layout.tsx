@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="pt-BR" className={`${plusJakartaSans.variable} ${anton.variable} ${syne.variable}`}>
-      <body suppressHydrationWarning className="bg-[#121212] text-[#efefef] antialiased">
+      <body suppressHydrationWarning className="antialiased">
         {children}
       </body>
     </html>
