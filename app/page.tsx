@@ -33,32 +33,32 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-bg-primary/80 backdrop-blur-md border-b border-border-light py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#121212]/95 backdrop-blur-md border-b border-white/10 py-4 text-white' : 'bg-transparent py-6 text-text-primary'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-display tracking-tighter text-text-primary">
+        <Link href="/" className="text-2xl font-display tracking-tighter">
           OPTCHA
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-accent uppercase tracking-widest text-text-primary hover:text-brand transition-colors">
+            <Link key={link.name} href={link.href} className="text-sm font-accent uppercase tracking-widest hover:text-brand transition-colors">
               {link.name}
             </Link>
           ))}
-          <button onClick={toggleTheme} className="w-10 h-10 rounded-full border border-border-main flex items-center justify-center text-text-primary hover:text-brand hover:border-brand transition-all" title="Alternar Tema">
+          <button onClick={toggleTheme} className={`w-10 h-10 rounded-full border flex items-center justify-center hover:text-brand hover:border-brand transition-all ${isScrolled ? 'border-white/10 text-white' : 'border-border-main'}`} title="Alternar Tema">
             {isLightMode ? <Moon size={18} /> : <Sun size={18} />}
           </button>
           <Link 
             href="https://wa.me/5511921414523" 
-            className="border border-brand px-6 py-2 rounded-full text-sm font-accent uppercase tracking-widest hover:bg-brand transition-all duration-300"
+            className={`border border-brand px-6 py-2 rounded-full text-sm font-accent uppercase tracking-widest hover:bg-brand hover:text-white transition-all duration-300 ${isScrolled ? 'text-white' : ''}`}
           >
             Assessoria
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-text-primary" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -70,14 +70,14 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-bg-secondary border-b border-border-light p-6 flex flex-col gap-6 md:hidden"
+            className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 p-6 flex flex-col gap-6 md:hidden text-white"
           >
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-xl font-display uppercase tracking-wider text-text-primary"
+                className="text-xl font-display uppercase tracking-wider"
               >
                 {link.name}
               </Link>
@@ -88,7 +88,7 @@ const Navbar = () => {
             >
               Assessoria
             </Link>
-            <button onClick={toggleTheme} className="flex items-center gap-4 text-xl font-display uppercase tracking-wider text-text-primary">
+            <button onClick={toggleTheme} className="flex items-center gap-4 text-xl font-display uppercase tracking-wider">
               {isLightMode ? <><Moon size={24} /> Modo Escuro</> : <><Sun size={24} /> Modo Claro</>}
             </button>
           </motion.div>
@@ -117,7 +117,7 @@ const Hero = () => {
               transition={{ repeat: Infinity, duration: 2 }}
               className="w-3 h-3 bg-brand rounded-full" 
             />
-            <span className="text-xs font-accent uppercase tracking-[0.3em] text-[#e5e5e5]/60">Assessoria Digital</span>
+            <span className="text-xs font-accent uppercase tracking-[0.3em] text-text-tertiary">Assessoria Digital</span>
           </div>
 
           <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-display leading-[0.9] uppercase tracking-normal mb-4">
@@ -126,7 +126,7 @@ const Hero = () => {
           </h1>
 
           <div className="w-full flex flex-col items-center gap-8 mt-4">
-            <p className="max-w-md text-[#e5e5e5]/80 text-lg md:text-xl font-light leading-relaxed text-center tracking-normal">
+            <p className="max-w-md text-text-secondary text-lg md:text-xl font-light leading-relaxed text-center tracking-normal">
               Estratégia, criatividade e presença online para quem quer crescer de verdade.
             </p>
           </div>
@@ -139,7 +139,7 @@ const Hero = () => {
 const Marquee = () => {
   const items = ["ESTRATÉGIAS", "SOLUÇÕES", "RESULTADOS", "POSICIONAMENTO"];
   return (
-    <div className="bg-white py-6 overflow-hidden flex whitespace-nowrap">
+    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap">
       <motion.div 
         animate={{ x: [0, -1000] }}
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -148,7 +148,7 @@ const Marquee = () => {
         {[...Array(10)].map((_, i) => (
           <React.Fragment key={i}>
             {items.map((item) => (
-              <span key={item} className="text-dark font-display text-4xl md:text-6xl uppercase flex items-center gap-12">
+              <span key={item} className="text-bg-primary font-display text-4xl md:text-6xl uppercase flex items-center gap-12">
                 {item} <span className="text-2xl">✦</span>
               </span>
             ))}
@@ -168,17 +168,17 @@ const About = () => {
           <h2 className="text-4xl md:text-6xl font-display uppercase leading-tight mb-8 tracking-wide">
             Assessoria para posicionamento, <br/> marketing digital e presença online.
           </h2>
-          <p className="mt-8 italic text-[#e5e5e5]/60 text-lg">
+          <p className="mt-8 italic text-text-tertiary text-lg">
             &quot;Presença que gera resultado e posiciona você no mercado.&quot;
           </p>
         </div>
 
         <div className="lg:pl-12 flex flex-col justify-between h-full">
           <div className="relative">
-            <p className="text-xl md:text-2xl text-[#efefef]/80 leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl text-text-secondary leading-relaxed mb-12">
               Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que seguidores quer presença real, autoridade e crescimento sustentável.
             </p>
-            <p className="text-[#e5e5e5]/80 mb-8">
+            <p className="text-text-secondary mb-8">
               Atendimento 100% online. Em todo o Brasil.
             </p>
             
@@ -186,17 +186,17 @@ const About = () => {
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              className="w-32 h-32 border border-white/10 rounded-full flex items-center justify-center relative"
+              className="w-32 h-32 border border-border-main rounded-full flex items-center justify-center relative"
             >
               <div className="absolute inset-0 flex items-center justify-center text-[12px] font-accent uppercase tracking-widest">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                  <text className="fill-[#e5e5e5]">
+                  <text className="fill-text-primary">
                     <textPath href="#circlePath">OPTCHA ★ OPTCHA ★ OPTCHA ★ </textPath>
                   </text>
                 </svg>
               </div>
-              <Star className="text-[#efefef] fill-[#efefef] absolute" size={24} />
+              <Star className="text-text-primary fill-text-primary absolute" size={24} />
             </motion.div>
           </div>
         </div>
@@ -213,7 +213,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="bg-dark-soft py-32 px-6">
+    <section className="bg-bg-secondary py-32 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {stats.map((stat, i) => (
           <motion.div 
@@ -222,11 +222,11 @@ const Stats = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`flex flex-col items-center text-center ${i < 2 ? 'md:border-r border-white/10' : ''}`}
+            className={`flex flex-col items-center text-center ${i < 2 ? 'md:border-r border-border-main' : ''}`}
           >
             <span className="text-6xl md:text-8xl font-display mb-4">{stat.value}</span>
             <span className="text-xl font-accent uppercase tracking-widest mb-2">{stat.label}</span>
-            <span className="text-[#e5e5e5]/80 text-sm max-w-[200px]">{stat.sub}</span>
+            <span className="text-text-secondary text-sm max-w-[200px]">{stat.sub}</span>
           </motion.div>
         ))}
       </div>
@@ -255,10 +255,10 @@ const Services = () => {
             key={service.id}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
-            className="group border-t border-white/10 py-12 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-500"
+            className="group border-t border-border-main py-12 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-500"
           >
             <div className="flex items-center gap-8 md:gap-16">
-              <span className="text-[#efefef]/20 font-display text-2xl">{service.id}</span>
+              <span className="text-text-tertiary opacity-30 font-display text-2xl">{service.id}</span>
               <h3 className="text-3xl md:text-5xl font-display uppercase group-hover:text-brand transition-colors">
                 {service.title}
               </h3>
@@ -272,20 +272,20 @@ const Services = () => {
                   height: hovered === i ? 'auto' : 0,
                   width: hovered === i ? '300px' : '0px'
                 }}
-                className="text-[#e5e5e5]/80 text-sm hidden lg:block overflow-hidden"
+                className="text-text-secondary text-sm hidden lg:block overflow-hidden"
               >
                 {service.desc}
               </motion.p>
               <motion.div
                 animate={{ rotate: hovered === i ? 45 : 0 }}
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand"
+                className="w-12 h-12 rounded-full border border-border-main flex items-center justify-center group-hover:border-brand"
               >
                 <ArrowRight className="group-hover:text-brand" />
               </motion.div>
             </div>
           </div>
         ))}
-        <div className="border-t border-white/10" />
+        <div className="border-t border-border-main" />
       </div>
     </section>
   );
@@ -293,7 +293,7 @@ const Services = () => {
 
 const Cases = () => {
   return (
-    <section id="cases" className="relative py-48 px-6 overflow-hidden bg-dark">
+    <section id="cases" className="relative py-48 px-6 overflow-hidden bg-bg-primary">
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <span className="text-[25vw] font-display text-outline opacity-20 select-none">CASES</span>
@@ -305,7 +305,7 @@ const Cases = () => {
             <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Cases de Sucesso</span>
             <h2 className="text-4xl md:text-6xl font-display uppercase">Resultados que falam.</h2>
           </div>
-          <p className="text-[#e5e5e5]/80 max-w-xs text-right mt-6 md:mt-0 whitespace-pre-line">
+          <p className="text-text-secondary max-w-xs text-right mt-6 md:mt-0 whitespace-pre-line">
             Projetos entregues com resultados reais.{"\n"}
             Clientes que cresceram com a gente.
           </p>
@@ -320,9 +320,9 @@ const Cases = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display uppercase text-white">@Nico.Ag</h3>
+              <h3 className="text-3xl font-display uppercase text-text-primary">@Nico.Ag</h3>
             </div>
           </div>
           
@@ -334,9 +334,9 @@ const Cases = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display uppercase text-white">@Epimero</h3>
+              <h3 className="text-3xl font-display uppercase text-text-primary">@Epimero</h3>
             </div>
           </div>
           
@@ -348,9 +348,9 @@ const Cases = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display uppercase text-white">@simonetto</h3>
+              <h3 className="text-3xl font-display uppercase text-text-primary">@simonetto</h3>
             </div>
           </div>
         </div>
@@ -443,7 +443,7 @@ const Testimonial = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="bg-dark-soft py-48 px-6 relative overflow-hidden">
+    <section className="bg-bg-secondary py-48 px-6 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Quote className="text-brand mx-auto mb-12 opacity-50" size={64} />
         
@@ -457,7 +457,7 @@ const Testimonial = () => {
               transition={{ duration: 0.3 }}
               className="w-full"
             >
-              <h2 className="text-2xl md:text-4xl font-light leading-relaxed mb-12 italic text-[#efefef]/90">
+              <h2 className="text-2xl md:text-4xl font-light leading-relaxed mb-12 italic text-text-primary">
                 &quot;{testimonials[currentIndex].quote}&quot;
               </h2>
               <div className="flex flex-col items-center">
@@ -471,7 +471,7 @@ const Testimonial = () => {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="font-display uppercase tracking-wider text-[#efefef]">{testimonials[currentIndex].name}</span>
+                <span className="font-display uppercase tracking-wider text-text-primary">{testimonials[currentIndex].name}</span>
                 <span className="text-brand text-xs font-accent uppercase tracking-widest">{testimonials[currentIndex].handle}</span>
               </div>
             </motion.div>
@@ -479,10 +479,10 @@ const Testimonial = () => {
         </div>
 
         <div className="flex justify-center gap-4 mt-12">
-          <button onClick={prev} className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand hover:text-brand transition-all">
+          <button onClick={prev} className="w-12 h-12 rounded-full border border-border-main flex items-center justify-center hover:border-brand hover:text-brand transition-all">
             <ChevronLeft size={20} />
           </button>
-          <button onClick={next} className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand hover:text-brand transition-all">
+          <button onClick={next} className="w-12 h-12 rounded-full border border-border-main flex items-center justify-center hover:border-brand hover:text-brand transition-all">
             <ChevronRight size={20} />
           </button>
         </div>
@@ -508,20 +508,20 @@ const FAQ = () => {
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">FAQ</span>
           <h2 className="text-6xl md:text-8xl font-display uppercase mb-8">Sem <br /> mistério.</h2>
-          <p className="text-[#e5e5e5]/80 max-w-xs">Respondemos tudo o que você precisar para dar o próximo passo.</p>
+          <p className="text-text-secondary max-w-xs">Respondemos tudo o que você precisar para dar o próximo passo.</p>
         </div>
         
         <div className="flex flex-col gap-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-white/10 pb-6">
+            <div key={i} className="border-b border-border-main pb-6">
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex justify-between items-center py-4 text-left group"
               >
-                <span className={`text-xl md:text-2xl font-display uppercase transition-colors ${openIndex === i ? 'text-brand' : 'text-[#efefef]'}`}>
+                <span className={`text-xl md:text-2xl font-display uppercase transition-colors ${openIndex === i ? 'text-brand' : 'text-text-primary'}`}>
                   {faq.q}
                 </span>
-                <div className="text-[#e5e5e5] group-hover:text-brand transition-colors">
+                <div className="text-text-secondary group-hover:text-brand transition-colors">
                   {openIndex === i ? <Minus size={20} /> : <Plus size={20} />}
                 </div>
               </button>
@@ -533,7 +533,7 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-[#e5e5e5]/80 leading-relaxed pb-4">
+                    <p className="text-text-secondary leading-relaxed pb-4">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -572,21 +572,21 @@ const FinalCTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-dark pt-32 pb-12 px-6">
+    <footer className="bg-bg-primary pt-32 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-32">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-4xl font-display tracking-tighter mb-6 block">
               OPTCHA
             </Link>
-            <p className="text-[#e5e5e5]/80 text-xl font-accent uppercase tracking-widest mb-8">
+            <p className="text-text-secondary text-xl font-accent uppercase tracking-widest mb-8">
               Opta. Inova. Expande. ⟶
             </p>
             <div className="flex gap-6">
-              <Link href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand hover:text-brand transition-all">
+              <Link href="#" className="w-12 h-12 rounded-full border border-border-main flex items-center justify-center hover:border-brand hover:text-brand transition-all">
                 <Instagram size={20} />
               </Link>
-              <Link href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand hover:text-brand transition-all">
+              <Link href="#" className="w-12 h-12 rounded-full border border-border-main flex items-center justify-center hover:border-brand hover:text-brand transition-all">
                 <Linkedin size={20} />
               </Link>
             </div>
@@ -594,16 +594,16 @@ const Footer = () => {
           
           <div>
             <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Contato</h4>
-            <ul className="space-y-4 text-[#e5e5e5]/80">
+            <ul className="space-y-4 text-text-secondary">
               <li className="flex items-center gap-3"><MessageCircle size={16} className="text-brand" /> (11) 9 2141-4523</li>
               <li>optchabrasil@gmail.com</li>
-              <li className="text-[#e5e5e5]/40">📍 São Paulo — SP</li>
+              <li className="text-text-tertiary opacity-50">📍 São Paulo — SP</li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Navegação</h4>
-            <ul className="space-y-4 text-[#e5e5e5]/80">
+            <ul className="space-y-4 text-text-secondary">
               <li><Link href="#" className="hover:text-brand transition-colors">Início</Link></li>
               <li><Link href="#sobre" className="hover:text-brand transition-colors">Sobre Nós</Link></li>
               <li><Link href="#servicos" className="hover:text-brand transition-colors">Serviços</Link></li>
@@ -623,18 +623,18 @@ const Footer = () => {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="absolute inset-0 bg-bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <Instagram size={24} />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[#e5e5e5]/60 text-xs uppercase tracking-widest">
+        <div className="border-t border-border-light pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-text-tertiary text-xs uppercase tracking-widest">
           <span>© 2026 OPTCHA. Todos os direitos reservados.</span>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-[#efefef] transition-colors">Privacidade</Link>
-            <Link href="#" className="hover:text-[#efefef] transition-colors">Termos</Link>
+            <Link href="#" className="hover:text-text-primary transition-colors">Privacidade</Link>
+            <Link href="#" className="hover:text-text-primary transition-colors">Termos</Link>
           </div>
         </div>
       </div>
@@ -665,7 +665,7 @@ export default function LandingPage() {
       {/* Custom Cursor (Simplified) */}
       <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999]">
         <motion.div 
-          className="w-8 h-8 border border-brand rounded-full"
+          className="w-8 h-8 border border-brand rounded-full mix-blend-difference"
           animate={{ x: -16, y: -16 }}
           style={{ position: 'fixed', left: 'var(--mouse-x)', top: 'var(--mouse-y)' }}
         />
