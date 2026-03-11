@@ -109,7 +109,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-start"
+          className="flex flex-col items-center text-center"
         >
           <div className="flex items-center gap-3 mb-8">
             <motion.div 
@@ -117,17 +117,16 @@ const Hero = () => {
               transition={{ repeat: Infinity, duration: 2 }}
               className="w-3 h-3 bg-brand rounded-full" 
             />
-            <span className="text-xs font-accent uppercase tracking-[0.3em] text-white/60">Assessoria Digital</span>
+            <span className="text-xs font-accent uppercase tracking-[0.3em] text-[#e5e5e5]/60">Assessoria Digital</span>
           </div>
 
-          <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-display leading-[0.9] uppercase tracking-wide mb-4">
+          <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-display leading-[0.9] uppercase tracking-normal mb-4">
             Escolha o digital, <br />
             <span className="text-brand block mt-4">transforme marcas.</span>
           </h1>
 
-          <div className="w-full flex flex-col md:flex-row justify-between items-end gap-8 mt-4">
-            <div className="hidden md:block w-1/3 h-[1px] bg-white/10 mb-4" />
-            <p className="max-w-md text-[#e5e5e5]/80 text-lg md:text-xl font-light leading-relaxed text-right tracking-wide">
+          <div className="w-full flex flex-col items-center gap-8 mt-4">
+            <p className="max-w-md text-[#e5e5e5]/80 text-lg md:text-xl font-light leading-relaxed text-center tracking-normal">
               Estratégia, criatividade e presença online para quem quer crescer de verdade.
             </p>
           </div>
@@ -259,7 +258,7 @@ const Services = () => {
             className="group border-t border-white/10 py-12 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-500"
           >
             <div className="flex items-center gap-8 md:gap-16">
-              <span className="text-white/20 font-display text-2xl">{service.id}</span>
+              <span className="text-[#efefef]/20 font-display text-2xl">{service.id}</span>
               <h3 className="text-3xl md:text-5xl font-display uppercase group-hover:text-brand transition-colors">
                 {service.title}
               </h3>
@@ -323,7 +322,6 @@ const Cases = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <span className="text-brand text-sm font-accent uppercase tracking-widest mb-2 block">Case Real</span>
               <h3 className="text-3xl font-display uppercase text-white">@Nico.Ag</h3>
             </div>
           </div>
@@ -338,7 +336,6 @@ const Cases = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <span className="text-brand text-sm font-accent uppercase tracking-widest mb-2 block">Case Real</span>
               <h3 className="text-3xl font-display uppercase text-white">@Epimero</h3>
             </div>
           </div>
@@ -353,7 +350,6 @@ const Cases = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <span className="text-brand text-sm font-accent uppercase tracking-widest mb-2 block">Case Real</span>
               <h3 className="text-3xl font-display uppercase text-white">@simonetto</h3>
             </div>
           </div>
@@ -448,7 +444,7 @@ const Testimonial = () => {
               transition={{ duration: 0.3 }}
               className="w-full"
             >
-              <h2 className="text-2xl md:text-4xl font-light leading-relaxed mb-12 italic text-white/90">
+              <h2 className="text-2xl md:text-4xl font-light leading-relaxed mb-12 italic text-[#efefef]/90">
                 &quot;{testimonials[currentIndex].quote}&quot;
               </h2>
               <div className="flex flex-col items-center">
@@ -462,7 +458,7 @@ const Testimonial = () => {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="font-display uppercase tracking-wider">{testimonials[currentIndex].name}</span>
+                <span className="font-display uppercase tracking-wider text-[#efefef]">{testimonials[currentIndex].name}</span>
                 <span className="text-brand text-xs font-accent uppercase tracking-widest">{testimonials[currentIndex].handle}</span>
               </div>
             </motion.div>
@@ -621,11 +617,11 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-white/20 text-xs uppercase tracking-widest">
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[#e5e5e5]/60 text-xs uppercase tracking-widest">
           <span>© 2026 OPTCHA. Todos os direitos reservados.</span>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-white transition-colors">Privacidade</Link>
-            <Link href="#" className="hover:text-white transition-colors">Termos</Link>
+            <Link href="#" className="hover:text-[#efefef] transition-colors">Privacidade</Link>
+            <Link href="#" className="hover:text-[#efefef] transition-colors">Termos</Link>
           </div>
         </div>
       </div>
