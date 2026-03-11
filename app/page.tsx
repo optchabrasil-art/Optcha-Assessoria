@@ -564,7 +564,7 @@ const FinalCTA = () => {
         <p className="text-white/80 text-lg md:text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
         <Link 
           href="https://wa.me/5511921414523" 
-          className="inline-flex items-center gap-4 bg-bg-primary text-text-primary px-8 py-4 md:px-12 md:py-6 rounded-full text-sm md:text-base font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl text-center"
+          className="inline-flex items-center gap-4 bg-[#121212] text-white px-8 py-4 md:px-12 md:py-6 rounded-full text-sm md:text-base font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl text-center"
         >
           Falar com uma especialista <ArrowRight size={20} className="hidden sm:block" />
         </Link>
