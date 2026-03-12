@@ -619,24 +619,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Instagram Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-16">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="aspect-square relative overflow-hidden group">
-              <Image 
-                src={`https://picsum.photos/seed/insta${i}/400/400?grayscale`} 
-                alt={`Insta ${i}`} 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Instagram size={24} />
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="border-t border-border-light pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-text-tertiary text-xs uppercase tracking-widest">
           <span>© 2026 OPTCHA. Todos os direitos reservados.</span>
           <div className="flex gap-8">
