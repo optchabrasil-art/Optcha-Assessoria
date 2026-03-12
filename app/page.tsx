@@ -100,7 +100,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-32 pb-20 overflow-hidden">
       {/* Radial Gradient Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,0,16,0.05)_0%,transparent_70%)] pointer-events-none" />
       
@@ -144,7 +144,7 @@ const Marquee = () => {
     "POSICIONAMENTO"
   ];
   return (
-    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap relative z-20 -mt-[42px] md:-mt-[54px]">
+    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap relative z-20">
       <motion.div 
         animate={{ x: [0, -1000] }}
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -187,12 +187,12 @@ const About = () => {
         </div>
       </div>
 
-      {/* Large Rotating Badge at the fold */}
-      <div className="absolute left-1/2 -bottom-32 md:-bottom-40 -translate-x-1/2 z-10">
+      {/* Large Rotating Badge */}
+      <div className="flex justify-center w-full mt-12 md:mt-0 md:absolute md:right-12 md:top-32 md:w-auto z-10 pointer-events-none opacity-40">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          className="w-64 h-64 md:w-80 md:h-80 border border-border-main rounded-full flex items-center justify-center relative bg-bg-primary"
+          className="w-48 h-48 md:w-64 md:h-64 border border-border-main rounded-full flex items-center justify-center relative bg-transparent"
         >
           <div className="absolute inset-0 flex items-center justify-center text-[13px] md:text-[16px] font-accent uppercase tracking-widest">
             <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -303,7 +303,7 @@ const Services = () => {
 
 const Cases = () => {
   return (
-    <section id="cases" className="relative py-48 px-6 overflow-hidden bg-bg-primary">
+    <section id="cases" className="relative py-32 px-6 overflow-hidden bg-bg-primary">
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <span className="text-[25vw] font-display text-outline opacity-20 select-none">CASES</span>
@@ -324,11 +324,10 @@ const Cases = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/nico.ag-site-marketing-identidade-visual/600/800?grayscale" 
+              src="/nico.webp" 
               alt="@Nico.Ag" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
@@ -336,13 +335,12 @@ const Cases = () => {
             </div>
           </div>
           
-          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12">
+          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/google-meu-negocio-epi-equipamentos-de-protecao-/600/800?grayscale" 
+              src="/epimero.webp" 
               alt="@Epimero" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
@@ -352,11 +350,10 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/loja-simonetto-arquitetura-design-interiores-moveis-planejados-instagram-social-media/600/800?grayscale" 
+              src="/simonetto.webp" 
               alt="@simonetto" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
@@ -453,7 +450,7 @@ const Testimonial = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="bg-bg-secondary py-48 px-6 relative overflow-hidden">
+    <section className="bg-bg-secondary py-32 px-6 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Quote className="text-brand mx-auto mb-12 opacity-50" size={64} />
         
