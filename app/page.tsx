@@ -100,7 +100,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-32 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden">
       {/* Radial Gradient Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,0,16,0.05)_0%,transparent_70%)] pointer-events-none" />
       
@@ -137,14 +137,9 @@ const Hero = () => {
 };
 
 const Marquee = () => {
-  const items = [
-    "RESULTADO", 
-    "SOLUÇÃO", 
-    "ESTRATÉGIA", 
-    "POSICIONAMENTO"
-  ];
+  const items = ["ESTRATÉGIAS", "SOLUÇÕES", "RESULTADOS", "POSICIONAMENTO"];
   return (
-    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap relative z-20">
+    <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap">
       <motion.div 
         animate={{ x: [0, -1000] }}
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -166,13 +161,16 @@ const Marquee = () => {
 
 const About = () => {
   return (
-    <section id="sobre" className="py-32 px-6 max-w-7xl mx-auto relative">
-      <span className="text-brand font-accent uppercase tracking-widest text-sm mb-8 block">Sobre Nós</span>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-24 md:mb-32">
+    <section id="sobre" className="py-32 px-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight tracking-wide">
-            ASSESSORIA PARA POSICIONAMENTO, <br className="hidden md:block" /> MARKETING DIGITAL E PRESENÇA ONLINE.
+          <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-wide">
+            Assessoria para posicionamento, <br className="hidden md:block" /> marketing digital e presença online.
           </h2>
+          <p className="mt-8 italic text-text-tertiary text-lg">
+            &quot;Presença que gera resultado e posiciona você no mercado.&quot;
+          </p>
         </div>
 
         <div className="lg:pl-12 flex flex-col justify-between h-full">
@@ -183,26 +181,25 @@ const About = () => {
             <p className="text-text-secondary mb-8">
               Atendimento 100% online. Em todo o Brasil.
             </p>
+            
+            {/* Rotating Badge */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+              className="w-32 h-32 border border-border-main rounded-full flex items-center justify-center relative"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-[12px] font-accent uppercase tracking-widest">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                  <text className="fill-text-primary">
+                    <textPath href="#circlePath">OPTCHA ★ OPTCHA ★ OPTCHA ★ </textPath>
+                  </text>
+                </svg>
+              </div>
+              <Star className="text-text-primary fill-text-primary absolute" size={24} />
+            </motion.div>
           </div>
         </div>
-      </div>
-
-      {/* Large Rotating Badge */}
-      <div className="flex justify-center w-full mt-12 md:mt-0 md:absolute md:right-12 md:top-32 md:w-auto z-10 pointer-events-none opacity-40">
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          className="w-48 h-48 md:w-64 md:h-64 border border-border-main rounded-full flex items-center justify-center relative bg-transparent"
-        >
-          <div className="absolute inset-0 flex items-center justify-center text-[13px] md:text-[16px] font-accent uppercase tracking-widest">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-              <text className="fill-text-primary">
-                <textPath href="#circlePath">OPTCHA ⟶ OPTCHA ⟶ OPTCHA ⟶ </textPath>
-              </text>
-            </svg>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
@@ -303,7 +300,7 @@ const Services = () => {
 
 const Cases = () => {
   return (
-    <section id="cases" className="relative py-32 px-6 overflow-hidden bg-bg-primary">
+    <section id="cases" className="relative py-48 px-6 overflow-hidden bg-bg-primary">
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <span className="text-[25vw] font-display text-outline opacity-20 select-none">CASES</span>
@@ -324,10 +321,11 @@ const Cases = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="/nico.webp" 
+              src="https://picsum.photos/seed/nico.ag-site-marketing-identidade-visual/600/800?grayscale" 
               alt="@Nico.Ag" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
@@ -335,12 +333,13 @@ const Cases = () => {
             </div>
           </div>
           
-          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
+          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12">
             <Image 
-              src="/epimero.webp" 
+              src="https://picsum.photos/seed/google-meu-negocio-epi-equipamentos-de-protecao-/600/800?grayscale" 
               alt="@Epimero" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
@@ -350,10 +349,11 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="/simonetto.webp" 
+              src="https://picsum.photos/seed/loja-simonetto-arquitetura-design-interiores-moveis-planejados-instagram-social-media/600/800?grayscale" 
               alt="@simonetto" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
@@ -450,7 +450,7 @@ const Testimonial = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="bg-bg-secondary py-32 px-6 relative overflow-hidden">
+    <section className="bg-bg-secondary py-48 px-6 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Quote className="text-brand mx-auto mb-12 opacity-50" size={64} />
         
