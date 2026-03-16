@@ -137,7 +137,7 @@ const Hero = () => {
 };
 
 const Marquee = () => {
-  const items = ["ESTRATÉGIAS", "SOLUÇÕES", "RESULTADOS", "POSICIONAMENTO"];
+  const items = ["ESTRATÉGIA", "SOLUÇÃO", "RESULTADO", "POSICIONAMENTO"];
   return (
     <div className="bg-text-primary py-6 overflow-hidden flex whitespace-nowrap">
       <motion.div 
@@ -149,7 +149,14 @@ const Marquee = () => {
           <React.Fragment key={i}>
             {items.map((item) => (
               <span key={item} className="text-bg-primary font-display text-4xl md:text-6xl uppercase flex items-center gap-12">
-                {item} <span className="text-2xl">✦</span>
+                {item} 
+                <svg viewBox="0 0 100 100" className="w-8 h-8 md:w-10 md:h-10 text-black" aria-hidden="true">
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" strokeWidth="6" />
+                  <circle cx="50" cy="50" r="14" fill="currentColor" />
+                  {[...Array(16)].map((_, j) => (
+                    <line key={j} x1="50" y1="12" x2="50" y2="32" stroke="currentColor" strokeWidth="4" strokeLinecap="round" transform={`rotate(${j * 22.5} 50 50)`} />
+                  ))}
+                </svg>
               </span>
             ))}
           </React.Fragment>
