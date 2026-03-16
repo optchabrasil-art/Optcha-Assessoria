@@ -328,12 +328,12 @@ const Cases = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
+          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-bg-tertiary">
             <Image 
               src="/nico.ag.png.png" 
               alt="@Nico.Ag" 
               fill 
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-contain transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
@@ -342,12 +342,12 @@ const Cases = () => {
             </div>
           </div>
           
-          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12">
+          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12 bg-bg-tertiary">
             <Image 
               src="/epimero.png.png" 
               alt="@Epimero" 
               fill 
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-contain transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
@@ -356,12 +356,12 @@ const Cases = () => {
             </div>
           </div>
           
-          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
+          <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-bg-tertiary">
             <Image 
               src="/simonetto.png.png" 
               alt="@simonetto" 
               fill 
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-contain transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent opacity-80" />
