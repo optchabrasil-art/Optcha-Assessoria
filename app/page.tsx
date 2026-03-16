@@ -166,7 +166,7 @@ const About = () => {
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-wide">
-            Assessoria para posicionamento, <br className="hidden md:block" /> marketing digital e presença online.
+            Assessoria para posicionamento e <br className="hidden md:block" /> marketing digital.
           </h2>
           <p className="mt-8 italic text-text-tertiary text-lg">
             &quot;Presença que gera resultado e posiciona você no mercado.&quot;
