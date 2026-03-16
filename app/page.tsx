@@ -330,7 +330,7 @@ const Cases = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="/nico.png" 
+              src="/nico.ag.png.png" 
               alt="@Nico.Ag" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -344,7 +344,7 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12">
             <Image 
-              src="https://picsum.photos/seed/google-meu-negocio-epi-equipamentos-de-protecao-/600/800?grayscale" 
+              src="/epimero.png.png" 
               alt="@Epimero" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -358,7 +358,7 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/loja-simonetto-arquitetura-design-interiores-moveis-planejados-instagram-social-media/600/800?grayscale" 
+              src="/simonetto.png.png" 
               alt="@simonetto" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
