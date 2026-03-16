@@ -150,7 +150,7 @@ const Marquee = () => {
             {items.map((item) => (
               <span key={item} className="text-bg-primary font-display text-4xl md:text-6xl uppercase flex items-center gap-12">
                 {item} 
-                <svg viewBox="0 0 100 100" className="w-8 h-8 md:w-10 md:h-10 text-black" aria-hidden="true">
+                <svg viewBox="0 0 100 100" className="w-8 h-8 md:w-10 md:h-10" aria-hidden="true">
                   <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" strokeWidth="6" />
                   <circle cx="50" cy="50" r="14" fill="currentColor" />
                   {[...Array(16)].map((_, j) => (
