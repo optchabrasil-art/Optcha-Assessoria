@@ -162,9 +162,9 @@ const Marquee = () => {
 const About = () => {
   return (
     <section id="sobre" className="py-16 px-6 max-w-7xl mx-auto">
+      <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
-          <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-wide">
             Assessoria para posicionamento e <br className="hidden md:block" /> marketing digital.
           </h2>
@@ -323,7 +323,7 @@ const Cases = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
             <Image 
-              src="https://picsum.photos/seed/nico.ag-site-marketing-identidade-visual/600/800?grayscale" 
+              src="/nico.png" 
               alt="@Nico.Ag" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-110"
