@@ -72,6 +72,9 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 p-6 flex flex-col gap-6 lg:hidden text-white"
           >
+            <button onClick={toggleTheme} className="flex items-center gap-4 text-xl font-display uppercase tracking-wider">
+              {isLightMode ? <><Moon size={24} /> Modo Escuro</> : <><Sun size={24} /> Modo Claro</>}
+            </button>
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
@@ -88,9 +91,6 @@ const Navbar = () => {
             >
               Assessoria
             </Link>
-            <button onClick={toggleTheme} className="flex items-center gap-4 text-xl font-display uppercase tracking-wider">
-              {isLightMode ? <><Moon size={24} /> Modo Escuro</> : <><Sun size={24} /> Modo Claro</>}
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -161,7 +161,7 @@ const Marquee = () => {
 
 const About = () => {
   return (
-    <section id="sobre" className="py-32 px-6 max-w-7xl mx-auto">
+    <section id="sobre" className="py-16 px-6 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">Sobre Nós</span>
@@ -183,21 +183,23 @@ const About = () => {
             </p>
             
             {/* Rotating Badge */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              className="w-32 h-32 border border-border-main rounded-full flex items-center justify-center relative"
-            >
-              <div className="absolute inset-0 flex items-center justify-center text-[12px] font-accent uppercase tracking-widest">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                  <text className="fill-text-primary">
-                    <textPath href="#circlePath">OPTCHA ★ OPTCHA ★ OPTCHA ★ </textPath>
-                  </text>
-                </svg>
-              </div>
-              <Star className="text-text-primary fill-text-primary absolute" size={24} />
-            </motion.div>
+            <div className="flex justify-center mt-12">
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+                className="w-32 h-32 border border-border-main rounded-full flex items-center justify-center relative"
+              >
+                <div className="absolute inset-0 flex items-center justify-center text-[12px] font-accent uppercase tracking-widest">
+                  <svg viewBox="0 0 100 100" className="w-full h-full">
+                    <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                    <text className="fill-text-primary">
+                      <textPath href="#circlePath">OPTCHA ⟶ OPTCHA ⟶ OPTCHA ⟶ </textPath>
+                    </text>
+                  </svg>
+                </div>
+                <ArrowRight className="text-text-primary absolute" size={24} />
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -213,7 +215,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="bg-bg-secondary py-32 px-6">
+    <section className="bg-bg-secondary py-16 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">
         {stats.map((stat, i) => (
           <motion.div 
@@ -245,7 +247,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-32 px-6 max-w-7xl mx-auto">
+    <section id="servicos" className="py-16 px-6 max-w-7xl mx-auto">
       <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">O QUE FAZEMOS</span>
       <h2 className="text-4xl md:text-6xl font-display uppercase mb-20">Sua marca posicionada no digital.</h2>
 
@@ -300,7 +302,7 @@ const Services = () => {
 
 const Cases = () => {
   return (
-    <section id="cases" className="relative py-48 px-6 overflow-hidden bg-bg-primary">
+    <section id="cases" className="relative py-24 px-6 overflow-hidden bg-bg-primary">
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <span className="text-[25vw] font-display text-outline opacity-20 select-none">CASES</span>
@@ -375,7 +377,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto">
+    <section className="py-16 px-6 max-w-7xl mx-auto">
       <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">SERVIÇOS ESSENCIAIS</span>
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-display uppercase mb-12 md:mb-20">Assessoria completa, valor consciente.</h2>
 
@@ -383,7 +385,7 @@ const Pricing = () => {
         {plans.map((plan, i) => (
           <motion.div 
             key={i}
-            whileHover={{ scale: 1.01, borderColor: '#F4611A' }}
+            whileHover={{ scale: 1.01, borderColor: '#e50010' }}
             className="bg-bg-secondary border border-border-light p-10 rounded-3xl transition-all duration-500"
           >
             <div className="flex justify-between items-start mb-8">
@@ -450,7 +452,7 @@ const Testimonial = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="bg-bg-secondary py-48 px-6 relative overflow-hidden">
+    <section className="bg-bg-secondary py-24 px-6 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Quote className="text-brand mx-auto mb-12 opacity-50" size={64} />
         
@@ -510,7 +512,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto">
+    <section className="py-16 px-6 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
           <span className="text-brand font-accent uppercase tracking-widest text-sm mb-4 block">FAQ</span>
@@ -556,7 +558,7 @@ const FAQ = () => {
 
 const FinalCTA = () => {
   return (
-    <section id="contato" className="bg-brand py-32 px-6 text-center">
+    <section id="contato" className="bg-brand py-24 px-6 text-center">
       <div className="max-w-4xl mx-auto">
         <motion.h2 
           initial={{ scale: 0.9, opacity: 0 }}
@@ -579,7 +581,7 @@ const FinalCTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-bg-primary pt-32 pb-12 px-6">
+    <footer className="bg-bg-primary pt-24 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-32">
           <div className="col-span-1 sm:col-span-2">
