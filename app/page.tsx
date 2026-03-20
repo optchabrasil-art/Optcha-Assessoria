@@ -330,7 +330,7 @@ const Cases = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-bg-tertiary">
             <Image 
-              src="/nico.ag.png.png" 
+              src="/nico.ag.png" 
               alt="@Nico.Ag" 
               fill 
               className="object-contain transition-transform duration-700 group-hover:scale-110"
@@ -344,7 +344,7 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl md:mt-12 bg-bg-tertiary">
             <Image 
-              src="/epimero.png.png" 
+              src="/epimero.png" 
               alt="@Epimero" 
               fill 
               className="object-contain transition-transform duration-700 group-hover:scale-110"
@@ -358,7 +358,7 @@ const Cases = () => {
           
           <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-bg-tertiary">
             <Image 
-              src="/simonetto.png.png" 
+              src="/simonetto.png" 
               alt="@simonetto" 
               fill 
               className="object-contain transition-transform duration-700 group-hover:scale-110"
