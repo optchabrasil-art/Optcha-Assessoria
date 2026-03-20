@@ -432,19 +432,19 @@ const Testimonial = () => {
       quote: "O Google Meu Negócio e o Site trouxeram resultados reais para a Epimero. Hoje somos encontrados com facilidade e os clientes chegam com mais confiança.",
       name: "Caique Freitas Moraes",
       handle: "@epimero",
-      image: "https://picsum.photos/seed/client1/100/100"
+      image: "epimero-equipamentos.jpeg"
     },
     {
       quote: "O trabalho da OPTCHA transformou nossa presença digital. O design e a gestão das redes sociais trouxeram uma nova cara para o nosso negócio.",
       name: "Maria Rosivania",
       handle: "@divinosaborbarerestaurante",
-      image: "https://picsum.photos/seed/client2/100/100"
+      image: "divino-sabor.jpeg"
     },
     {
       quote: "Com o cardápio digital e a nova estratégia de redes sociais, nosso atendimento ficou muito mais ágil e profissional. Excelente trabalho!",
       name: "Reinaldo Lopes",
       handle: "@flordapavao",
-      image: "https://picsum.photos/seed/client3/100/100"
+      image: "floda-da-pavao.jpeg"
     }
   ];
 
