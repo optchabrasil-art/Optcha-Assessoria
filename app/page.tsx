@@ -444,7 +444,7 @@ const Testimonial = () => {
       quote: "Com o cardápio digital e a nova estratégia de redes sociais, nosso atendimento ficou muito mais ágil e profissional. Excelente trabalho!",
       name: "Reinaldo Lopes",
       handle: "@flordapavao",
-      image: "flor-da-pavao.jpeg"
+      image: "flor-da-pavao.jpg"
     }
   ];
 
