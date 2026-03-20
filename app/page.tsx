@@ -183,7 +183,7 @@ const About = () => {
         <div className="lg:pl-12 flex flex-col justify-between h-full">
           <div className="relative">
             <p className="text-xl md:text-2xl text-text-secondary leading-relaxed mb-12">
-              Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que seguidores quer presença real, autoridade e crescimento sustentável.
+              Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que seguidores, quer presença real, autoridade e crescimento sustentável.
             </p>
             <p className="text-text-secondary mb-8">
               Atendimento 100% online. Em todo o Brasil.
@@ -248,7 +248,7 @@ const Services = () => {
 
   const services = [
     { id: '01', title: 'Social Media', desc: 'Criamos estratégias de social media que transformam seguidores em clientes reais. Conteúdo com intenção, consistência e identidade.' },
-    { id: '02', title: 'Tráfego Pago', desc: 'Campanhas que convertem. Anúncios com propósito cada centavo investido pensado para gerar resultado mensurável.' },
+    { id: '02', title: 'Tráfego Pago', desc: 'Campanhas que convertem. Anúncios com propósito, cada centavo investido pensado para gerar resultado mensurável.' },
     { id: '03', title: 'Website e Sistemas', desc: 'Sites e sistemas sob medida para impulsionar o crescimento do seu negócio. Do design ao desenvolvimento, entregamos experiências que vendem.' },
     { id: '04', title: 'Google Meu Negócio', desc: 'Apareça quando seu cliente está buscando. Otimizamos seu perfil para que sua empresa seja encontrada e escolhida.' },
   ];
@@ -444,7 +444,7 @@ const Testimonial = () => {
       quote: "Com o cardápio digital e a nova estratégia de redes sociais, nosso atendimento ficou muito mais ágil e profissional. Excelente trabalho!",
       name: "Reinaldo Lopes",
       handle: "@flordapavao",
-      image: "floda-da-pavao.jpeg"
+      image: "flor-da-pavao.jpeg"
     }
   ];
 
@@ -514,7 +514,7 @@ const FAQ = () => {
     { q: 'O que destaca a assessoria de vocês?', a: 'Não trabalhamos com pacotes prontos. Cada projeto é construído com atenção, estratégia e criatividade sempre com uma visão honesta do que realmente funciona para o seu negócio.' },
     { q: 'Como funciona a Assessoria?', a: 'Começamos com um diagnóstico para entender sua marca, seus objetivos e seu público. A partir daí, montamos um plano sob medida e colocamos em prática com acompanhamento próximo.' },
     { q: 'A partir de quando o trabalho começa?', a: 'Logo após a assinatura do contrato e o alinhamento inicial. Em geral, iniciamos as entregas na primeira semana.' },
-    { q: 'E se eu tiver uma empresa pequena?', a: 'Melhor ainda. Trabalhamos com negócios de diferentes tamanhos o que importa é a vontade de crescer, não o tamanho atual.' },
+    { q: 'E se eu tiver uma empresa pequena?', a: 'Trabalhamos com negócios de diferentes tamanhos o que importa é a vontade de crescer, não o tamanho atual.' },
     { q: 'Precisa de contrato?', a: 'Sim. O contrato protege você e garante clareza sobre prazos, entregas e responsabilidades. Nada de surpresas.' },
   ];
 
