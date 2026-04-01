@@ -414,7 +414,7 @@ const Pricing = () => {
       
       <div className="text-center">
         <Link 
-          href="https://wa.me/5511921414523" 
+          href="https://wa.me/5511921814523" 
           className="inline-flex items-center gap-4 bg-brand text-white px-10 py-4 rounded-full font-accent uppercase tracking-widest hover:scale-105 transition-transform shadow-lg"
         >
           Solicitar Orçamento <ArrowRight size={18} />
@@ -576,7 +576,7 @@ const FinalCTA = () => {
         </motion.h2>
         <p className="text-white/80 text-lg md:text-xl mb-12 font-medium">Pronto para transformar sua marca no digital?</p>
         <Link 
-          href="https://wa.me/5511921414523" 
+          href="https://wa.me/5511921814523" 
           className="inline-flex items-center gap-4 bg-[#121212] text-white px-8 py-4 md:px-12 md:py-6 rounded-full text-sm md:text-base font-accent uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl text-center"
         >
           Falar com uma especialista <ArrowRight size={20} className="hidden sm:block" />
@@ -611,7 +611,7 @@ const Footer = () => {
           <div>
             <h4 className="font-accent uppercase tracking-widest text-xs text-brand mb-8">Contato</h4>
             <ul className="space-y-4 text-text-secondary">
-              <li className="flex items-center gap-3"><MessageCircle size={16} className="text-brand" /> (11) 9 2141-4523</li>
+              <li className="flex items-center gap-3"><MessageCircle size={16} className="text-brand" /> (11) 9 2181-4523</li>
               <li>optchabrasil@gmail.com</li>
               <li className="text-text-tertiary opacity-50">📍 São Paulo — SP</li>
             </ul>
