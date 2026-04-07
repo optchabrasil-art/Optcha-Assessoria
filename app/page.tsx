@@ -183,7 +183,7 @@ const About = () => {
         <div className="lg:pl-12 flex flex-col justify-between h-full">
           <div className="relative">
             <p className="text-xl md:text-2xl text-text-secondary leading-relaxed mb-12">
-              Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que seguidores, quer presença real, autoridade e crescimento sustentável.
+              Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que visibilidade rasa, quer presença real, autoridade e crescimento sustentável.
             </p>
             <p className="text-text-secondary mb-8">
               Atendimento 100% online. Em todo o Brasil.
