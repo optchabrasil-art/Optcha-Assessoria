@@ -176,7 +176,7 @@ const About = () => {
             Assessoria para posicionamento e <br className="hidden md:block" /> marketing digital.
           </h2>
           <p className="mt-8 italic text-text-tertiary text-lg">
-            &quot;Presença que gera resultado e posiciona você no mercado.&quot;
+            &quot;&quot;
           </p>
         </div>
 
@@ -186,7 +186,7 @@ const About = () => {
               Somos especialistas em posicionamento e marketing digital com mais de 7 anos de mercado. Trabalhamos com quem quer mais do que visibilidade rasa, quer presença real, autoridade e crescimento sustentável.
             </p>
             <p className="text-text-secondary mb-8">
-              Atendimento 100% online. Em todo o Brasil.
+              Atendimento 100% online. Em todo o Brasil!
             </p>
             
             {/* Rotating Badge */}
