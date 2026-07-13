@@ -8,7 +8,7 @@ export default function CardapioDivinoSabor() {
   const isRedirecting = React.useRef(false);
 
   const router = useRouter();
-  const PDF_URL = "/cardapio-divino-sabor.pdf";
+  const PDF_URL = "/cardapio-divino-sabor2.pdf";
 
   const handleRedirect = useCallback(() => {
     if (isRedirecting.current) return;
