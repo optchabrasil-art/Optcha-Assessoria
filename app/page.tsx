@@ -176,7 +176,6 @@ const About = () => {
             Assessoria para posicionamento e <br className="hidden md:block" /> marketing digital.
           </h2>
           <p className="mt-8 italic text-text-tertiary text-lg">
-            &quot;&quot;
           </p>
         </div>
 
